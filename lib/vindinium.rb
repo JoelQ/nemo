@@ -1,3 +1,3 @@
 require "vindinium/game"
-module Vindium
+module Vindinium
 end
