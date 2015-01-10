@@ -11,6 +11,10 @@ module Vindinium
       Vindinium::Game.new(response)
     end
 
+    def submit_move(game_url, move)
+      HTTParty.post "#{game_url}?key=#{ai_key}&dir=#{move}"
+    end
+
     private
 
     def ai_key

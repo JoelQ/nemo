@@ -6,4 +6,14 @@ require "vindinium"
 require "nemo"
 
 puts "Starting a training game"
-Vindinium::Api.new(Nemo::AI_KEY).start_training_game
+api = Vindinium::Api.new(Nemo::AI_KEY)
+ai = Nemo.new
+game = api.start_training_game
+
+system "open #{game.viewing_url}"
+
+until game.ended?
+  move = ai.next_move
+  puts " - Moving #{move}"
+  api.submit_move(game.command_url, move)
+end
