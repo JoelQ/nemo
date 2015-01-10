@@ -6,4 +6,4 @@ require "vindinium"
 require "nemo"
 
 puts "Starting a training game"
-Vindinium::Game.create_training Nemo::AI_KEY
+Vindinium::Api.new(Nemo::AI_KEY).start_training_game
